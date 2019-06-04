@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Progress Bar</title>
+    </head>
+    <body>
+        <div class="bar-container">
+            <div class="bar" >
+        </div>
+
+        <!-- This function caller has an arguement integer
+             of 2 seconds. That's the seconds to fill the bar. -->
+        <button onclick='fillBar(2)'>Start</button> 
+
+        <script>
+
+            function fillBar(seconds) {     
+                const bar = document.querySelector('.bar');                    
+                 //--CSS. Transition property will take function paramater's
+                 //--variable inside a string interpolation tag 
+                 //--which will get the number of seconds when called. 
+                 bar.style.transition = `${seconds}s linear width`
+                 bar.style.width = '100%';
+                 //--END CSS               
+            }
+        </script>
+        
+        <style>
+            
+            body {
+                /*Light grey color means Bar is at 0 by default*/
+                background-color: lightgrey;
+            }
+            .bar-container{
+                width: 200px;
+                height: 30px;
+                margin: '40px';
+                background-color: grey;
+            }
+            .bar {
+                /*This class allows bar to be filled vertically*/
+                background-color: green;
+                height: 100%;
+                width:  0%;
+            }
+        </style>
+    </body>
+</html>
